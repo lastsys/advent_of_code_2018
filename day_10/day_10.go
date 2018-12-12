@@ -134,6 +134,7 @@ func loadData(filename string) PointList {
 	if err != nil {
 		log.Fatal(err)
 	}
+	defer f.Close()
 
 	scanner := bufio.NewScanner(f)
 	scanner.Split(bufio.ScanLines)

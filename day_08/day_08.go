@@ -46,6 +46,7 @@ func loadData(filename string) []int {
 	if err != nil {
 		log.Fatal(err)
 	}
+	defer f.Close()
 	fInfo, err := f.Stat()
 	if err != nil {
 		log.Fatal(err)

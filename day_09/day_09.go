@@ -43,6 +43,7 @@ func loadData(filename string, test bool) []Game {
 	if err != nil {
 		log.Fatal(err)
 	}
+	defer f.Close()
 
 	scanner := bufio.NewScanner(f)
 	scanner.Split(bufio.ScanLines)
