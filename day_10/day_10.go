@@ -170,7 +170,7 @@ func part1(points PointList) {
 		}
 		if spread < 352.0 {
 			fmt.Println(spread)
-			fmt.Printf("Seconds: %v\n", i)
+			fmt.Printf("Seconds: %v", i)
 			break
 		}
 	}
