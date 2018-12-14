@@ -1,4 +1,4 @@
-﻿module Program
+﻿module Day01
 
 open System
 
