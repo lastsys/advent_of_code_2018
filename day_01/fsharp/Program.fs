@@ -1,5 +1,4 @@
-﻿// Learn more about F# at http://fsharp.org
-module Program
+﻿module Program
 
 open System
 
@@ -12,7 +11,6 @@ let load_file filename =
     filename
     |> System.IO.File.ReadLines
     |> Seq.map int
-    |> Seq.toArray
 
 let part1 values = Seq.sum values
 
