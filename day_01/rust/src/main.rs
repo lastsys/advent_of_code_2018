@@ -1,7 +1,7 @@
 use std::fs::File;
 use std::io::prelude::*;
 use std::io::BufReader;
-use std::collections::{LinkedList, HashMap};
+use std::collections::{LinkedList, HashSet};
 
 trait Sum {
     fn sum(&self) -> i32;
@@ -34,16 +34,16 @@ fn part1(values: &LinkedList<i32>) {
 }
 
 fn part2(values: &LinkedList<i32>) {
-    let mut visited = HashMap::new();
+    let mut visited = HashSet::new();
     let mut v = 0;
     loop {
         for value in values {
             v += value;
-            if visited.contains_key(&v) {
+            if visited.contains(&v) {
                 println!("Part 2: {}", v);
                 return;
             } else {
-                visited.insert(v, true);
+                visited.insert(v);
             }
         }
     }
