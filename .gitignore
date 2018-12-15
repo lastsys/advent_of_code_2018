@@ -3,3 +3,5 @@ target
 Cargo.lock
 obj
 bin
+.stack-work
+*.cabal
