@@ -167,7 +167,6 @@ func loadData(filename string) ([]TestCase, []Instruction) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer f.Close()
 
 	beforePattern, _ := regexp.Compile(`Before:\s+\[(\d+),\s*(\d+),\s*(\d+),\s*(\d+)\]`)
 	instructionPattern, _ := regexp.Compile(`(\d+)\s(\d+)\s(\d+)\s(\d+)`)
