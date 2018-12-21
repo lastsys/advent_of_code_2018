@@ -43,8 +43,8 @@ F 5
      L8:
 25 : seti 17 0 2            C = 17       (JUMP L4)
 26 : setr 1 4 3             D = B
-     L10:
 27 : seti 7 6 2			    C = 7        (JUMP LX)
+     L10:
 28 : eqrr 4 0 1             B = E == A
 29 : addr 1 2 2             C = B + C    (JUMP L11 IF B == 0, HALT IF B == 1)
 30 : seti 5 2 2             C = 5        (JUMP L1)
