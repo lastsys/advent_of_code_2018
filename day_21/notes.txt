@@ -1,0 +1,50 @@
+A 0
+B 1
+C 2
+D 3
+E 4
+F 5
+
+#ip 2
+     L0:
+ 0 : seti 123 0 4           E = 123
+ 1 : bani 4 456 4           E = E & 456
+ 2 : eqri 4 72 4            E = E == 72
+ 3 : addr 4 2 2             C = E + C    (JUMP L1 IF E == 1)
+ 4 : seti 0 0 2             C = 0        (JUMP L0 IF E == 0)
+     L1:
+ 5 : seti 0 7 4             E = 0
+ 6 : bori 4 65536 3         D = E & 65536      0x10000
+     LX:
+ 7 : seti 10283511 1 4      E = 10283511
+ 8 : bani 3 255 1           B = D & 255        0xFF
+ 9 : addr 4 1 4             E = E + B
+10 : bani 4 16777215 4      E = E & 16777215   0xFFFFFF
+11 : muli 4 65899 4         E = E * 65899      0x1016B
+12 : bani 4 16777215 4      E = E * 16777215   0xFFFFFF
+13 : gtir 256 3 1           B = 256 > D        0x100
+14 : addr 1 2 2             C = B + C    (JUMP L2 IF E == 0, JUMP L3 IF E == 1)
+     L2:
+15 : addi 2 1 2             C = C + 1    (JUMP L4)
+     L3:
+16 : seti 27 8 2            C = 27       (JUMP L10)
+     L4:
+17 : seti 0 1 1             B = 0
+18 : addi 1 1 5             F = B + 1
+19 : muli 5 256 5           F = F * 256  0x100
+20 : gtrr 5 3 5             F = F > D
+21 : addr 5 2 2             C = F + C    (JUMP L5 IF F == 0, JUMP L6 IF F == 1)
+     L5:
+22 : addi 2 1 2             C = C + 1    (JUMP L7)
+     L6:
+23 : seti 25 3 2            C = 25       (JUMP L8)
+     L7:
+24 : addi 1 1 1             B = B + 1
+     L8:
+25 : seti 17 0 2            C = 17       (JUMP L4)
+26 : setr 1 4 3             D = B
+     L10:
+27 : seti 7 6 2			    C = 7        (JUMP LX)
+28 : eqrr 4 0 1             B = E == A
+29 : addr 1 2 2             C = B + C    (JUMP L11 IF B == 0, HALT IF B == 1)
+30 : seti 5 2 2             C = 5        (JUMP L1)
