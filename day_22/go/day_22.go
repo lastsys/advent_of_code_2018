@@ -4,7 +4,6 @@ import (
 	"container/list"
 	"fmt"
 	"golang.org/x/tools/container/intsets"
-	"strings"
 )
 
 type Map struct {
@@ -191,16 +190,16 @@ func findPath(m *Map) {
 			if ds, ok := distanceFromSource[p2]; !ok {
 				distanceFromSource[p2] = distanceFromSource[p] + d2
 				//cameFrom[p2] = p
-				fmt.Printf("(%v, %v, %s) (%c) -> (%v, %v, %s) (%c) = (%v, %v)\n", p.x, p.y, p.tool.String(), m.Tile(p.x, p.y), p2.x, p2.y, p2.tool.String(), m.Tile(p2.x, p2.y), d2, distanceFromSource[p2])
+				//fmt.Printf("(%v, %v, %s) (%c) -> (%v, %v, %s) (%c) = (%v, %v)\n", p.x, p.y, p.tool.String(), m.Tile(p.x, p.y), p2.x, p2.y, p2.tool.String(), m.Tile(p2.x, p2.y), d2, distanceFromSource[p2])
 				queue.PushBack(p2)
 			} else if ds > distanceFromSource[p]+d2 {
 				distanceFromSource[p2] = distanceFromSource[p] + d2
 				//cameFrom[p2] = p
-				fmt.Printf("(%v, %v, %s) (%c) -> (%v, %v, %s) (%c) = (%v, %v)\n", p.x, p.y, p.tool.String(), m.Tile(p.x, p.y), p2.x, p2.y, p2.tool.String(), m.Tile(p2.x, p2.y), d2, distanceFromSource[p2])
+				//fmt.Printf("(%v, %v, %s) (%c) -> (%v, %v, %s) (%c) = (%v, %v)\n", p.x, p.y, p.tool.String(), m.Tile(p.x, p.y), p2.x, p2.y, p2.tool.String(), m.Tile(p2.x, p2.y), d2, distanceFromSource[p2])
 				queue.PushBack(p2)
 			}
 		}
-		fmt.Println(strings.Repeat("-", 80))
+		//fmt.Println(strings.Repeat("-", 80))
 	}
 
 	fmt.Println(distanceFromSource[m.Target])
