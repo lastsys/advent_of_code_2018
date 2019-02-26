@@ -13,10 +13,7 @@
   (let ([updated-sum (+ sum (values))])
     (if (set-member? visited updated-sum)
         updated-sum
-        (sum-until-cycle
-         values
-         updated-sum
-         (set-add visited updated-sum))))) 
+        (sum-until-cycle values updated-sum (set-add visited updated-sum))))) 
 
 (define (part2 values)
   (let ([repeated-values (sequence->repeated-generator values)])
